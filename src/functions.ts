@@ -8,7 +8,7 @@ import { getRandomImageFromGallery, getRandomItemFrom, logger, makeRequest } fro
  */
 export const getPost = async (subreddit: string | string[]): Promise<IPost> => {
   const pickedSub: string = Array.isArray(subreddit) ? getRandomItemFrom(subreddit) : subreddit
-  const response = await makeRequest<RedditListingInterface>(`r/${pickedSub}.json?limit=50`);
+  const response = await makeRequest<RedditListingInterface>(`r/${pickedSub}/.json?limit=50`);
   logger.debug('HTTP response', response)
   const children = Array.isArray(response) ? getRandomItemFrom(response)?.data?.children : response?.data?.children
   const child = Array.isArray(children) ? getRandomItemFrom(children) : children
