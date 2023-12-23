@@ -17,6 +17,7 @@ export const makeRequest = async <T = any>(endpoint: string): Promise<T> => {
       'User-Agent': 'mamoruuu/random-reddit'
     }
   })
+  console.log(response);
   const body = await response.json()
   logger.debug(`Success ${endpoint}`)
   // Here we pick the first one because it contains the posts list
